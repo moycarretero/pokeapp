@@ -11,4 +11,9 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
-console.log('hola mundoooooooo');
+import React from "react";
+import ReactDom from "react-dom";
+import {BrowserRouter as Router} from 'react-router-dom';
+import Pokemons from "./components/Pokemons";
+
+ReactDom.render(<Router><Pokemons></Pokemons></Router>, document.getElementById('pokemons'));

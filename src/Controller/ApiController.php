@@ -2,29 +2,12 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PokemonController extends AbstractController
+class ApiController
 {
-    #[Route('/pokemon')]
-
-    public function getPokemon()
-    {
-        $pokemon = [
-            'nombre' => 'charmander',
-            'descripcion' =>
-                'Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola.',
-            'img' =>
-                'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
-            'id' => '004',
-        ];
-        return $this->render('pokemons/ShowPokemon.html.twig', [
-            'pokemon' => $pokemon,
-        ]);
-    }
-
-    #[Route("/pokemons",name:"list_de_pokemons")]
+    #[Route("/api/pokemons")]
     public function getPokemons()
     {
         $pokemons = [
@@ -32,7 +15,7 @@ class PokemonController extends AbstractController
                 'nombre' => 'charmander',
                 'descripcion' =>
                     'Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola.',
-                'img' =>
+                'imagen' =>
                     'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
                 'id' => '004',
             ],
@@ -40,7 +23,7 @@ class PokemonController extends AbstractController
                 'nombre' => 'Pichu',
                 'descripcion' =>
                     'A pesar de su pequeño tamaño, puede soltar descargas capaces de electrocutar a un adulto, si bien él también acaba sobresaltado.',
-                'img' =>
+                'imagen' =>
                     'https://assets.pokemon.com/assets/cms2/img/pokedex/full/172.png',
                 'id' => '172',
             ],
@@ -48,17 +31,12 @@ class PokemonController extends AbstractController
                 'nombre' => 'Dragonite',
                 'descripcion' =>
                     'Un Pokémon bondadoso y compasivo al que le resulta imposible dar la espalda a Pokémon o humanos que se encuentren a la deriva.',
-                'img' =>
+                'imagen' =>
                     'https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png',
                 'id' => '149',
             ],
         ];
-        return $this -> render('pokemons/listPokemons.html.twig',['pokemons'=> $pokemons]);
-    }
 
-    #[Route("/react/pokemons")]
-    public function reactPokemons()
-    {
-        return $this->render("pokemons/reactPokemons.html.twig");
+        return new JsonResponse($pokemons);
     }
 }
