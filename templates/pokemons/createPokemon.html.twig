@@ -1,0 +1,9 @@
+{% extends 'pokemons/BasePokemon.html.twig' %}
+
+{% block body %}
+
+	{{ form_start(pokemonForm) }}
+	{{ form_widget(pokemonForm) }}
+	<button type="submit">Añadir</button>
+	{{ form_end(pokemonForm) }}
+{% endblock %}
