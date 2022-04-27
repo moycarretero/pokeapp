@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\PokemonType;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class PokemonController extends AbstractController
 {
@@ -43,6 +45,7 @@ class PokemonController extends AbstractController
     }
 
     #[Route("/new/pokemon", name: "new_pokemon")]
+    #[IsGranted("ROLE_ADMIN")]
     public function createPokemon(Request $request, EntityManagerInterface $doctrine)
     {
         $form = $this->createForm(PokemonType::class);
@@ -51,7 +54,7 @@ class PokemonController extends AbstractController
             $pokemon = $form->getData();
             $doctrine->persist($pokemon);
             $doctrine->flush();
-             $this-> addFlash('success', 'Pokemon creado correctamente'); 
+            $this->addFlash('success', 'Pokemon creado correctamente');
             return $this->redirectToRoute('list_de_pokemons');
         }
         return $this->renderForm('pokemons/createPokemon.html.twig', ['pokemonForm' => $form]);
@@ -70,7 +73,7 @@ class PokemonController extends AbstractController
             $pokemon = $form->getData();
             $doctrine->persist($pokemon);
             $doctrine->flush();
-             $this-> addFlash('success', 'Pokemon creado correctamente'); 
+            $this->addFlash('success', 'Pokemon creado correctamente');
             return $this->redirectToRoute('list_de_pokemons');
         }
         return $this->renderForm('pokemons/createPokemon.html.twig', ['pokemonForm' => $form]);
@@ -92,11 +95,6 @@ class PokemonController extends AbstractController
 
         $debilidad4 = new Debilidad();
         $debilidad4->setNombre('Electricidad');
-
-
-
-
-
 
 
         $pokemon1 = new Pokemon();
