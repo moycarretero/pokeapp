@@ -15,6 +15,7 @@
                         <h5 class="card-title">{{pokemon.nombre}}</h5>
                         <p class="card-text">{{pokemon.descripcion}}</p>
                         <a href="{{ path('show_pokemon', {'id': pokemon.id}) }}" class="btn btn-primary">Más Info</a>
+                        <a href="{{ path('edit_pokemon', {'id': pokemon.id}) }}" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
             </div>
