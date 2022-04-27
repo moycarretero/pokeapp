@@ -6,7 +6,21 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+<<<<<<< HEAD
 import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+=======
+import './styles/app.scss';
+
+// start the Stimulus application
+import './bootstrap';
+
+import React from "react";
+import ReactDom from "react-dom";
+import {BrowserRouter as Router} from 'react-router-dom';
+import Pokemons from "./components/Pokemons";
+
+ReactDom.render(<Router><Pokemons></Pokemons></Router>, document.getElementById('pokemons'));
+>>>>>>> main

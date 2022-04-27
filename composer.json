@@ -21,6 +21,14 @@
         "symfony/yaml": "6.0.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
+<<<<<<< HEAD
+=======
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.40",
+        "symfony/stopwatch": "6.0.*",
+        "symfony/web-profiler-bundle": "6.0.*"
+>>>>>>> main
     },
     "config": {
         "allow-plugins": {

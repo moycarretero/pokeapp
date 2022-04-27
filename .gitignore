@@ -8,6 +8,13 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+<<<<<<< HEAD
+=======
+/.idea/
+/phpdocker/
+/docker-compose.yml
+/db-data/
+>>>>>>> main
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
