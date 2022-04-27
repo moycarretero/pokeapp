@@ -11,10 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PokemonController extends AbstractController
 {
-    #[Route('/pokemon/{id}')]
+    #[Route('/pokemon/{id}', name:"show_pokemon")]
 
     public function getPokemon($id, EntityManagerInterface $doctrine)
-
     {
         $repositorio = $doctrine->getRepository(Pokemon::class);
         $pokemon = $repositorio->find($id);
